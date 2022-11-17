@@ -1,0 +1,47 @@
+﻿@using WebsiteBanSach.Models;
+@model List<SACH>
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+@{
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+    ViewBag.Title = "Index";
+}
+@section NoiDungBenPhai{
+    Nhà xuất bản Kim Đồng trực thuộc Trung ương Đoàn TNCS Hồ Chí Minh là Nhà xuất bản tổng hợp có chức năng xuất bản sách và văn hóa phẩm phục vụ thiếu nhi và các bậc phụ huynh trong cả nước, quảng bá và giới thiệu văn hóa Việt Nam ra thế giới.
+    Nhà xuất bản có nhiệm vụ tổ chức bản thảo, biên soạn, biên dịch, xuất bản và phát hành các xuất bản phẩm có nội dung: giáo dục truyền thống dân tộc, giáo dục về tri thức, kiến thức… trên các lĩnh vực văn học, nghệ thuật, khoa học kỹ thuật nhằm cung cấp cho các em thiếu nhi cũng như các bậc phụ huynh các kiến thức cần thiết trong cuộc sống, những tinh hoa của tri thức nhân loại nhằm góp phần giáo dục và hình thành nhân cách thế hệ trẻ.
+    Đối tượng phục vụ của Nhà xuất bản là các em từ tuổi nhà trẻ mẫu giáo (1 đến 5 tuổi), nhi đồng (6 đến 9 tuổi), thiếu niên (10 đến 15 tuổi) đến các em tuổi mới lớn (16 đến 18 tuổi) và các bậc phụ huynh.
+    Tên giao dịch: Nhà xuất bản Kim Đồng
+    Tên giao dịch quốc tế: Kim Dong Publishing House
+    Ngày thành lập: 17 tháng 6 năm 1957
+    Cơ quan chủ quản: Trung ương Đoàn TNCS Hồ Chí Minh
+}
+
+
+@* div Body trang index *@
+<div id="divBody" >
+    @{ int i = 0;}
+    @foreach (var item in Model)
+     {
+        <div id="SanPham">
+                @*i++;*@
+                <div id="AnhBia" style="padding-left: 3rem;"><img src="@Url.Content("~/ImagesSP/" + item.AnhBia)" width="100" height="150" /></div>
+                <div id="ThongTin">
+                        @if (item.TenSach.Length < 30)
+                    {
+                        <div id="TenSach" title="@item.TenSach" >@item.TenSach.</div>
+                    }
+
+                        else
+                    {
+                        <div id="TenSach" title="@item.TenSach" >@item.TenSach.Substring(0,30)...</div>
+                    }
+
+                </div>               
+                <div id="DonGia"><span style="color: green; font-weight: normal;"> Đơn giá: </span><br /><span id="DonGia"> @string.Format("{0:0,0}", item.GiaBan) VNĐ</span> </div>
+            @if(i % 3 == 0)
+                {
+                <div style="clear:both"></div>
+                }
+        </div> 
+     }
+</div>
+<div style="clear:both"></div>

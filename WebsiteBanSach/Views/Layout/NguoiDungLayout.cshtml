@@ -1,0 +1,160 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @* Free template *@
+    <link href="~/Content/CssLayout/fonts.css" rel="stylesheet" />
+    <link href="~/Content/CssLayout/screen.css" rel="stylesheet" />
+    @* Link Css *@
+    <link href="~/Content/CssLayout/NguoiDungCss.css" rel="stylesheet" />
+    @* Font Css*@
+    <link href="~/Content/fontawesome-free-6.2.0-web/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome-free-6.2.0-web/css/all.min.css" rel="stylesheet" />
+    @* Slide *@
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="./css/app.css" />
+</head>
+
+<body style="font-family: Arial, Helvetica, sans-serif; letter-spacing: 1px;">
+    <div>
+        <section class="blank">
+            <div class="flash">
+                <div class="icDienThoai">
+                    <i class="fa-sharp fa-solid fa-phone"></i>
+                    (+84) 343232-479
+                </div>
+                @*Tạo div đăng ký đăng nhập*@
+            <div class="DangKyDangNhap">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                @Html.ActionLink("Đăng ký", "DangKy", "NguoiDung", null, htmlAttributes: new { @class = "DangKy" })
+                <i class="fa-sharp fa-solid fa-lock-open"></i>
+                @Html.ActionLink("Đăng nhập", "DangNhap", "NguoiDung", null, htmlAttributes: new { @class = "DangNhap" })
+            </div>
+            </div>
+
+            @* Xây dựng div menu header *@
+            <div class="flash success" id="divDanhMuc">
+                @* Làm ô tìm kiếm *@
+                <div id="divTimKiem" style=" display: flex; ">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextboxTimKiem", @placeholder = "Search..." })
+                        @*Button search*@
+                        <div id="divHinhAnhTimKiem">
+                            <button type="submit">
+                                <img src="~/Images/[CITYPNG.COM]White Search Icon Button PNG IMG - 512x512.png" />
+                            </button>
+                        </div>
+                    }
+                </div>
+                @* Menu *@
+                <ul class="navMenu">
+                    <li>
+                        <a href="#">Trang chủ</a>
+                    </li> 
+                    <li>
+                        <a href="/sach">Giới thiệu</a>
+                    </li>
+                    <li>
+                        <a href="#">Liên hệ</a>
+                    </li>
+                    <li>
+                        <a href="#">Hướng dẫn</a>
+                    </li>
+                    <li>
+                        <a href="#">Sách</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section  class="Top" @*style="display: flex;"*@>
+            <div id="NewSlide" style="display: flex;">
+                <div class="activity">
+                    @Html.Action("UploadSachMoi", "Sach")
+                </div>
+                @* Div slide*@
+                <div class="fade" style="width: 77%; padding-left: 2rem; padding-top:1rem;">
+                    <div>
+                        <img src="~/Images/sach 2.jpg" />
+                    </div>
+                    <div>
+                        <img src="~/Images/book2.jpg" />
+                    </div>
+                    <div>
+                        <img src="~/Images/book.jpg" />
+                    </div>
+
+                </div>
+            </div>
+                
+            
+        </section>
+
+        @* Div Body *@
+        <div id="NoiDung" style="background: white;">
+            @RenderBody()
+        </div>
+
+        @* Phần chủ đề *@
+        <section>
+            <div><h2 style="color: black;"> Danh mục chủ đề: </h2></div>
+            <div style="display: flex;justify-content: space-around">
+                @Html.Action("ChuDePartial","ChuDe")
+            </div>
+
+
+        </section>
+
+            @*Div nha xuat' ban *@
+            <section class="blank items">
+                <div style="display: flex; background: white;" >
+                    <div id="divLeft" style="width:25rem">
+                        <div class="item">
+                            <div class="item-info">
+                                
+                                @Html.Action("NhaXuatBanPartial","NhaXuatBan")
+                                
+                            </div>
+                            <img src="~/Images/tree-736885__480.jpg" style="height: 20rem;" />
+                        </div>
+                    </div>
+                    <div id="divRight" style="display: flex; max-width: 67rem; padding-top:1rem;">
+                        @RenderSection("NoiDungBenPhai",false)
+                    </div>
+                </div>
+            </section>
+
+    <div>
+        <a href="#" class="button button-buy">WELCOME TO NGHIA~ & HUY WEBSITE</a>
+    </div>
+
+
+    @*Link scripts chay slide*@
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="./app.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.fade').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                speed: 500,
+                fade: true,
+                arrows: false,
+            });
+        });
+    </script>
+    </div>
+</body>
+</html >

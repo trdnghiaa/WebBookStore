@@ -1,0 +1,83 @@
+﻿/*div#ToanTrang {
+    position: relative;
+}*/
+
+/* Thiết kế link đăng kí đăng nhập */
+.DangKyDangNhap {
+    float: right;
+    margin-top: -1%;
+}
+
+.DangKyDangNhap a:hover {
+    text-decoration: none;
+    color: green;
+    }
+
+.icDienThoai {
+    float: left;
+    margin-top: -1%;
+}
+
+/*css divDanhMuc*/
+#divDanhMuc {
+    padding: 0;
+    display: flex;
+    background: #303030;
+}
+
+/*css cho menu header*/
+.navMenu {
+    display: flex;
+    justify-content: end;
+    margin-right: 9rem;
+    width: 70%;
+}
+
+.navMenu li {
+    list-style-type: none;
+    padding: 1rem 1.5rem;
+    border-right: solid 1px rgb(0 0 0);
+    }
+/*css hover thay đổi màu chậm*/
+.navMenu li:hover {
+    background-color: rgba(0,0,0,.5);
+    -webkit-transition: all .5s ease-out;
+}
+
+.navMenu a:hover {
+    text-decoration: none;
+    }
+
+/*css tim kiem*/
+#divTimKiem {
+    
+    justify-content: flex-start;
+    margin-left: 106px;
+    width: 30%;
+}
+
+#txtTimKiem {
+    /*padding: 0.6rem 0.5rem;
+    border: solid 2px;
+    margin-top: 10px;*/
+    padding: 0.6rem 0.5rem;
+    height: 20px;
+    margin-top: 10px
+}
+
+#divHinhAnhTimKiem button {
+    margin-left: 5%;
+    width: 19%;
+    padding: 0px 1px;
+    margin-top: 13%;
+}
+
+/*Css search and button*/
+form
+{
+    display: flex;
+}
+/*div.fade img {
+    display: block;
+    max-width: 51rem;
+}*/

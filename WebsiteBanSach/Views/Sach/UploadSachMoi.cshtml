@@ -1,0 +1,30 @@
+﻿@using WebsiteBanSach.Models;
+@*Dinh nghia kieu du lieu cho bien model*@
+
+@model List<SACH>
+<h1 class="item-header"> Best Sellers of the Week</h1>
+@{
+    foreach (var item in Model)
+    {
+
+    <div class="activity-list-update">
+
+        <div><img src=@Url.Content("~/ImagesSP/" + item.AnhBia) alt="Image" style="max-width: 3rem" /></div>
+        @*Nếu tên sách dài hơn 30 kí tự thì cắt tên sách ra lấy kí tự từ 0->30 *@
+        @if (item.TenSach.Length > 30)
+        {
+            <p><strong title="@item.TenSach"> Tiêu đề: @item.TenSach.Substring(0, 35)...</strong><br /><a href="@Url.Action("XemChiTiet",new {@MaSach=item.MaSach})">Xem chi tiết</a></p>
+        }
+        else
+        {
+            <p><strong title="@item.TenSach"> Tiêu đề: @item.TenSach </strong> <br /> <a href="@Url.Action("XemChiTiet",new {@MaSach=item.MaSach})"> Xem chi tiết </a></p>
+            <div class="clear"></div>
+        }       
+    </div>
+    }
+}
+
+<a href="#" class="item-footer green" style="margin-top:11px">
+    New Book Uploaded
+</a>
+

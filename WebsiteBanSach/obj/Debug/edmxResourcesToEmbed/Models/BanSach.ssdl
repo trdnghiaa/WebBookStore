@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLBANSACHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CHITIETDONHANG">
+    <Key>
+      <PropertyRef Name="MaDonHang" />
+      <PropertyRef Name="MaSach" />
+    </Key>
+    <Property Name="MaDonHang" Type="int" Nullable="false" />
+    <Property Name="MaSach" Type="int" Nullable="false" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="DonGia" Type="int" />
+  </EntityType>
+  <EntityType Name="CHUDE">
+    <Key>
+      <PropertyRef Name="MaChuDe" />
+    </Key>
+    <Property Name="MaChuDe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenChuDe" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DONHANG">
+    <Key>
+      <PropertyRef Name="MaDonHang" />
+    </Key>
+    <Property Name="MaDonHang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DaThanhToan" Type="int" />
+    <Property Name="TinhTrangGiaoHang" Type="int" />
+    <Property Name="NgayDat" Type="datetime" />
+    <Property Name="NgayGiao" Type="datetime" />
+    <Property Name="MaKH" Type="int" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+    <Property Name="TaiKhoan" Type="varchar" MaxLength="50" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="200" />
+    <Property Name="DienThoai" Type="varchar" MaxLength="50" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="3" />
+    <Property Name="NgaySinh" Type="datetime" />
+  </EntityType>
+  <EntityType Name="NXB">
+    <Key>
+      <PropertyRef Name="MaNXB" />
+    </Key>
+    <Property Name="MaNXB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNXB" Type="nvarchar" MaxLength="50" />
+    <Property Name="DienThoai" Type="varchar" MaxLength="50" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SACH">
+    <Key>
+      <PropertyRef Name="MaSach" />
+    </Key>
+    <Property Name="MaSach" Type="int" Nullable="false" />
+    <Property Name="TenSach" Type="nvarchar" MaxLength="50" />
+    <Property Name="GiaBan" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="MoTa" Type="nvarchar(max)" />
+    <Property Name="AnhBia" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayCapNhat" Type="datetime" />
+    <Property Name="SoLuongTon" Type="int" />
+    <Property Name="MaNXB" Type="int" />
+    <Property Name="MaChuDe" Type="int" />
+    <Property Name="Moi" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TACGIA">
+    <Key>
+      <PropertyRef Name="MaTacGia" />
+    </Key>
+    <Property Name="MaTacGia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenTacGia" Type="nvarchar" MaxLength="50" />
+    <Property Name="DienThoai" Type="varchar" MaxLength="50" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="THAMGIA">
+    <Key>
+      <PropertyRef Name="MaSach" />
+      <PropertyRef Name="MaTacGia" />
+    </Key>
+    <Property Name="MaSach" Type="int" Nullable="false" />
+    <Property Name="MaTacGia" Type="int" Nullable="false" />
+    <Property Name="VaiTro" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_CHITIETDONHANG_DONHANG">
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="1" />
+    <End Role="CHITIETDONHANG" Type="Self.CHITIETDONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONHANG">
+        <PropertyRef Name="MaDonHang" />
+      </Principal>
+      <Dependent Role="CHITIETDONHANG">
+        <PropertyRef Name="MaDonHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHITIETDONHANG_SACH">
+    <End Role="SACH" Type="Self.SACH" Multiplicity="1" />
+    <End Role="CHITIETDONHANG" Type="Self.CHITIETDONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SACH">
+        <PropertyRef Name="MaSach" />
+      </Principal>
+      <Dependent Role="CHITIETDONHANG">
+        <PropertyRef Name="MaSach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DONHANG_KHACHHANG">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="DONHANG">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SACH_CHUDE">
+    <End Role="CHUDE" Type="Self.CHUDE" Multiplicity="0..1" />
+    <End Role="SACH" Type="Self.SACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUDE">
+        <PropertyRef Name="MaChuDe" />
+      </Principal>
+      <Dependent Role="SACH">
+        <PropertyRef Name="MaChuDe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SACH_NXB">
+    <End Role="NXB" Type="Self.NXB" Multiplicity="0..1" />
+    <End Role="SACH" Type="Self.SACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NXB">
+        <PropertyRef Name="MaNXB" />
+      </Principal>
+      <Dependent Role="SACH">
+        <PropertyRef Name="MaNXB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THAMGIA_SACH">
+    <End Role="SACH" Type="Self.SACH" Multiplicity="1" />
+    <End Role="THAMGIA" Type="Self.THAMGIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SACH">
+        <PropertyRef Name="MaSach" />
+      </Principal>
+      <Dependent Role="THAMGIA">
+        <PropertyRef Name="MaSach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THAMGIA_TACGIA">
+    <End Role="TACGIA" Type="Self.TACGIA" Multiplicity="1" />
+    <End Role="THAMGIA" Type="Self.THAMGIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TACGIA">
+        <PropertyRef Name="MaTacGia" />
+      </Principal>
+      <Dependent Role="THAMGIA">
+        <PropertyRef Name="MaTacGia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLBANSACHModelStoreContainer">
+    <EntitySet Name="CHITIETDONHANG" EntityType="Self.CHITIETDONHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHUDE" EntityType="Self.CHUDE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DONHANG" EntityType="Self.DONHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NXB" EntityType="Self.NXB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SACH" EntityType="Self.SACH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TACGIA" EntityType="Self.TACGIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THAMGIA" EntityType="Self.THAMGIA" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CHITIETDONHANG_DONHANG" Association="Self.FK_CHITIETDONHANG_DONHANG">
+      <End Role="DONHANG" EntitySet="DONHANG" />
+      <End Role="CHITIETDONHANG" EntitySet="CHITIETDONHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHITIETDONHANG_SACH" Association="Self.FK_CHITIETDONHANG_SACH">
+      <End Role="SACH" EntitySet="SACH" />
+      <End Role="CHITIETDONHANG" EntitySet="CHITIETDONHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DONHANG_KHACHHANG" Association="Self.FK_DONHANG_KHACHHANG">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="DONHANG" EntitySet="DONHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SACH_CHUDE" Association="Self.FK_SACH_CHUDE">
+      <End Role="CHUDE" EntitySet="CHUDE" />
+      <End Role="SACH" EntitySet="SACH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SACH_NXB" Association="Self.FK_SACH_NXB">
+      <End Role="NXB" EntitySet="NXB" />
+      <End Role="SACH" EntitySet="SACH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THAMGIA_SACH" Association="Self.FK_THAMGIA_SACH">
+      <End Role="SACH" EntitySet="SACH" />
+      <End Role="THAMGIA" EntitySet="THAMGIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THAMGIA_TACGIA" Association="Self.FK_THAMGIA_TACGIA">
+      <End Role="TACGIA" EntitySet="TACGIA" />
+      <End Role="THAMGIA" EntitySet="THAMGIA" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

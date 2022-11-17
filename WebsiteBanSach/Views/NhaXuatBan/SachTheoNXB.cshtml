@@ -1,0 +1,40 @@
+﻿@using WebsiteBanSach.Models;
+@model List<SACH>
+
+@{
+    ViewBag.Title = "SachTheoNXB";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+@{ int i = 0;}
+@foreach (var item in Model)
+{
+    <div id="SanPham">
+        @*i++;*@
+        <div id="AnhBia" style="padding-left: 3rem;"><img src="@Url.Content("~/ImagesSP/" + item.AnhBia)" width="100" height="150" /></div>
+        <div id="ThongTin">
+            @if (item.TenSach.Length < 30)
+            {
+                <div id="TenSach" title="@item.TenSach">@item.TenSach.</div>
+            }
+
+            else
+            {
+                <div id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 30)...</div>
+            }
+
+        </div>
+        <div id="DonGia">@item.GiaBan</div>
+        @if (i % 3 == 0)
+        {
+            <div style="clear:both"></div>
+        }
+    </div>
+} 
+<style>
+    div#NoiDung {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        padding: 0rem 11rem;
+    }
+</style>

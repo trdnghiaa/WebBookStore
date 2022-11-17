@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+<div id="divDangnhap">
+    <h2> Đăng nhập </h2>
+
+    @using (@Html.BeginForm())
+    {
+        <h1>@ViewBag.ThongBao</h1>
+        <span>Tài khoản: </span>
+        @Html.TextBox("txtTaiKhoan"); <br />
+        <br />
+        <span>Mật khẩu: </span><br />
+        <input name="txtMatKhau" type="text" />
+        <br />
+        <input type="submit" id="btnSubmit" name="btnSubmit" />
+
+
+    }
+</div>
+
+    @*<style>
+        div#divDangnhap {
+            display: grid;
+            MARGIN-RIGHT: 50REM;
+            MARGIN-LEFT: 27REM;
+        }
+    </style>*@

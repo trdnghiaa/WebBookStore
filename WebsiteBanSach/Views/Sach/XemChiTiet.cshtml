@@ -1,0 +1,98 @@
+﻿@using WebsiteBanSach.Models;
+@model SACH
+@{
+    ViewBag.Title = "XemChiTiet";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+@* CSS TRANG XEM CHI TIẾT*@
+<style>
+    /* ẩn div body*/
+    #divNoiDungBenPhai {
+        display: none;
+    }
+
+    section.Top {
+        display: none;
+    }
+</style>
+@section NoiDungBenPhai{
+    @* thông tin sách chi tiết *@
+    @* hình ảnh *@
+
+    <div id="HinhAnh" >
+        <img src="@Url.Content("~/ImagesSP/"+ Model.AnhBia)" @*style="width:15%;*@ />
+    </div>
+
+    @* thông tin *@
+    <div id="ThongTin">
+        <div id="TenSach"> @Model.TenSach</div>
+        <div id="ChuDe">Chủ đề: @Model.MaChuDe</div>
+        <div id="NhaXuatBan">Nhà Xuất Bản: @Model.MaNXB</div>
+        <div id="MoTa">Nội dung tóm tắt: <br />- @Model.MoTa<br /></div>
+        <div id="Gia"><span style="color: green; font-weight: normal;"> Đơn giá: </span><br /><span id="Gia"> @string.Format("{0:0,0}", @Model.GiaBan) VNĐ</span> </div>
+        <br />
+        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = Model.MaSach, @strURL = Request.Url.ToString() }))
+         {
+        <input type="submit" style="cursor: pointer" value="Buy &#xf07a;" id="btnGioHang" class="btn btn-primary" />
+         }
+    </div>
+    <div style="clear:both"></div>
+
+
+
+}
+
+@* css thong tin sach *@
+<style>
+    #HinhAnh img {
+        max-width: 12rem;
+        height: 16rem;
+        padding-left: 4rem;
+        padding-top: 3rem;
+    }
+    #ThongTin {
+        padding-left: 1rem;
+        padding-top: 3rem;
+    }
+    #TenSach{
+        font-weight:normal;
+        font-size:20pt;
+        height:auto;
+        word-wrap:break-word; /* canh nội dung tự xuống dòng */
+        color:red;
+    }
+    #ChuDe,#NhaXuatBan{
+        font-size:15pt;
+        font-weight:normal;
+        color:black;
+        height:auto;
+    }
+    #MoTa{
+        font-weight:normal;
+        color:black;
+        word-wrap:break-word;
+        height:auto;
+    }
+    #Gia span#Gia {
+        font-weight: normal;
+        color: orange;
+        font-size:25pt;
+        height: auto;
+    }
+    #btnGioHang {
+        font-family: 'FontAwesome','Segoe UI';
+        background-color: black;
+        letter-spacing: 1px;
+        max-width:9rem;
+    }
+    #btnGioHang:hover{
+        background-color:black;
+    }
+    
+</style>
+
+
+
+
+
