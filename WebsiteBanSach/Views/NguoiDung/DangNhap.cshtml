@@ -7,19 +7,17 @@
 <div id="divDangnhap">
     <h2> Đăng nhập </h2>
 
-    @using (@Html.BeginForm())
-    {
-        <h1>@ViewBag.ThongBao</h1>
-        <span>Tài khoản: </span>
-        @Html.TextBox("txtTaiKhoan"); <br />
-        <br />
-        <span>Mật khẩu: </span><br />
-        <input name="txtMatKhau" type="text" />
-        <br />
-        <input type="submit" id="btnSubmit" name="btnSubmit" />
-
-
-    }
+        @using (@Html.BeginForm())
+        {
+            <h1>@ViewBag.ThongBao</h1>
+            <span>Tài khoản: </span>
+            @Html.TextBox("txtTaiKhoan");
+            <br />
+            <span>Mật khẩu: </span><br />
+            <input name="txtMatKhau" type="text" />
+            <br />
+            <input type="submit" id="btnSubmit" name="btnSubmit" />
+        }
 </div>
 
     @*<style>

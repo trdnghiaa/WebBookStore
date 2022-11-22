@@ -16,7 +16,13 @@ namespace WebsiteBanSach
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new string[] { "WebsiteBanSach.Controllers" }
+            );
+            routes.MapRoute(
+                name: "Admin",
+                url: "Admin/SACHes/{action}/{id}",
+                defaults: new { controller = "SACHes", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

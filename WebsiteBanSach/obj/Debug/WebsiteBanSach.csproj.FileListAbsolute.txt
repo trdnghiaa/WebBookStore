@@ -159,4 +159,3 @@ C:\Users\Admin\Desktop\Ban Sach\WebsiteBanSach\WebsiteBanSach\bin\EntityFramewor
 C:\Users\Admin\Desktop\Ban Sach\WebsiteBanSach\WebsiteBanSach\bin\EntityFramework.SqlServer.dll
 C:\Users\Admin\Desktop\Ban Sach\WebsiteBanSach\WebsiteBanSach\bin\EntityFramework.xml
 C:\Users\Admin\Desktop\Ban Sach\WebsiteBanSach\WebsiteBanSach\bin\EntityFramework.SqlServer.xml
-C:\Users\Admin\Desktop\Ban Sach\WebsiteBanSach\WebsiteBanSach\obj\Debug\WebsiteBanSach.csproj.AssemblyReference.cache

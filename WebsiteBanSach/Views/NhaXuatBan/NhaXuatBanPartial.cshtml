@@ -2,15 +2,19 @@
 
 @model List<NXB>
 
-<h1> Publishing Company </h1>
-@foreach (var item in Model)
-{
+<h1 style="BORDER: SOLID 1PX #333; padding: 0.5rem 3rem; background-color: #F29305;"> Nhà Xuất Bản </h1>
+<div style="margin-left: 1rem;">
+    @foreach (var item in Model)
+    {
     <div>
+        <i class="fa-solid fa-building"></i>
         <a href="@Url.Action("SachTheoNXB", new {@MaNXB=item.MaNXB })"> @item.TenNXB </a>
     </div>
-}
+    }
 <div>
+    <i class="fa-solid fa-building"></i>
     <a href="@Url.Action("DanhMucNXB")"> Nhà Xuất Bản khác... </a>
+</div>
 </div>
 
 

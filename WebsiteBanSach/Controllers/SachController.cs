@@ -31,6 +31,10 @@ namespace WebsiteBanSach.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
+            /*CHUDE cd = db.CHUDEs.Single(n => n.MaChuDe == sach.MaChuDe).TenChuDe;
+            ViewBag.TenCD = cd.TenChuDe;*/
+            ViewBag.TenChuDe = db.CHUDEs.Single(n => n.MaChuDe == sach.MaChuDe).TenChuDe;
+            ViewBag.NhaXuatBan = db.NXBs.Single(n => n.MaNXB == sach.MaNXB).TenNXB;
             return View(sach);
         }
 

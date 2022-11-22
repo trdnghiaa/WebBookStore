@@ -2,20 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using WebsiteBanSach.Models;
-
 namespace WebsiteBanSach.Models
 {
     public class GioHang
     {
-        /*private int iMaSP;
-
-        public int IMaSP 
-        {
-            get { return iMaSP; }
-            set { iMaSP = value; } 
-        }*/
+        private int iMaSP;
         QLBANSACHEntities db = new QLBANSACHEntities();
+        /*public int IMaSP { get => iMaSP; set => iMaSP = value; }*/
         public int iMaSach { get; set; }
         public string sTenSach { get; set; }
         public string sAnhBia { get; set; }
@@ -25,7 +18,7 @@ namespace WebsiteBanSach.Models
         {
             get { return iSoLuong * dDonGia; }
         }
-        // ham` tao gio hang`
+        //Hàm tạo cho giỏ hàng
         public GioHang(int MaSach)
         {
             iMaSach = MaSach;
@@ -35,5 +28,7 @@ namespace WebsiteBanSach.Models
             dDonGia = double.Parse(sach.GiaBan.ToString());
             iSoLuong = 1;
         }
+
+
     }
 }

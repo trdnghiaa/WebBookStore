@@ -1,6 +1,5 @@
 ﻿@using WebsiteBanSach.Models;
 @model List<SACH>
-<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
 @{
     Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
     ViewBag.Title = "Index";
@@ -14,10 +13,10 @@
     Ngày thành lập: 17 tháng 6 năm 1957
     Cơ quan chủ quản: Trung ương Đoàn TNCS Hồ Chí Minh
 }
-
+<div id="titlebody" style="height: 4rem; text-align: -webkit-center; font-size: 3rem; padding: 2rem; font-weight: 500;">Sách mới xuất bản</div>
 
 @* div Body trang index *@
-<div id="divBody" >
+<div id="divBody" style="display: grid; grid-template-columns: auto auto auto; padding: 0rem 11rem;" >
     @{ int i = 0;}
     @foreach (var item in Model)
      {
@@ -27,19 +26,25 @@
                 <div id="ThongTin">
                         @if (item.TenSach.Length < 30)
                     {
-                        <div id="TenSach" title="@item.TenSach" >@item.TenSach.</div>
+                        <a href="/Sach/XemChiTiet?MaSach=@item.MaSach" id="TenSach" title="@item.TenSach" >@item.TenSach.</a>
                     }
 
                         else
                     {
-                        <div id="TenSach" title="@item.TenSach" >@item.TenSach.Substring(0,30)...</div>
+                        <a href="/Sach/XemChiTiet?MaSach=@item.MaSach" id="TenSach" title="@item.TenSach" >@item.TenSach.Substring(0,30)...</a>
                     }
 
                 </div>               
                 <div id="DonGia"><span style="color: green; font-weight: normal;"> Đơn giá: </span><br /><span id="DonGia"> @string.Format("{0:0,0}", item.GiaBan) VNĐ</span> </div>
+                <div id="GioHang">
+                    @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = item.MaSach, @strURL = Request.Url.ToString() }))
+                    {
+                        <input type="submit" style="cursor: pointer; text-transform: uppercase; background-color: #000; margin-left: 14PX; color: #fff;" value="Buy" id="btnGioHang" class="btn btn-primary" />
+                    }
+                </div>
             @if(i % 3 == 0)
                 {
-                <div style="clear:both"></div>
+                <div style="clear: both; margin-bottom: 2rem;"></div>
                 }
         </div> 
      }

@@ -187,6 +187,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CssLayout\Admin.css" />
     <Content Include="Content\CssLayout\fonts.css" />
     <Content Include="Content\CssLayout\NguoiDungCss.css" />
     <Content Include="Content\CssLayout\screen.css" />
@@ -2242,7 +2243,6 @@
     <Content Include="Content\fontawesome-free-6.2.0-web\svgs\solid\yen-sign.svg" />
     <Content Include="Content\fontawesome-free-6.2.0-web\svgs\solid\yin-yang.svg" />
     <Content Include="Content\fontawesome-free-6.2.0-web\svgs\solid\z.svg" />
-    <Content Include="Content\TrangChuCss.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -2383,6 +2383,8 @@
     <Content Include="Views\NguoiDung\DangKy.cshtml" />
     <Content Include="Views\NguoiDung\DangNhap.cshtml" />
     <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\GioHang\SuaGioHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

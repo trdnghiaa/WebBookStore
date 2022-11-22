@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./css/app.css" />
 </head>
 
-<body style="font-family: Arial, Helvetica, sans-serif; letter-spacing: 1px;">
+<body style="font-family: Arial, Helvetica, sans-serif ; font-size: 16px;">
     <div>
         <section class="blank">
             <div class="flash">
@@ -30,6 +30,7 @@
                 </div>
                 @*Tạo div đăng ký đăng nhập*@
             <div class="DangKyDangNhap">
+                @Html.Action("GioHangPartial", "GioHang")
                 <i class="fa-solid fa-right-to-bracket"></i>
                 @Html.ActionLink("Đăng ký", "DangKy", "NguoiDung", null, htmlAttributes: new { @class = "DangKy" })
                 <i class="fa-sharp fa-solid fa-lock-open"></i>
@@ -56,8 +57,8 @@
                 @* Menu *@
                 <ul class="navMenu">
                     <li>
-                        <a href="#">Trang chủ</a>
-                    </li> 
+                        <a href="/Home/Index">Trang chủ</a>
+                    </li>
                     <li>
                         <a href="/sach">Giới thiệu</a>
                     </li>
@@ -74,13 +75,13 @@
             </div>
         </section>
 
-        <section  class="Top" @*style="display: flex;"*@>
+        <section class="Top" @*style="display: flex;"*@>
             <div id="NewSlide" style="display: flex;">
                 <div class="activity">
                     @Html.Action("UploadSachMoi", "Sach")
                 </div>
                 @* Div slide*@
-                <div class="fade" style="width: 77%; padding-left: 2rem; padding-top:1rem;">
+                <div class="fade" style="width: 77%; padding-left: 2rem; padding-top:10px;">
                     <div>
                         <img src="~/Images/sach 2.jpg" />
                     </div>
@@ -93,8 +94,8 @@
 
                 </div>
             </div>
-                
-            
+
+
         </section>
 
         @* Div Body *@
@@ -106,55 +107,53 @@
         <section>
             <div><h2 style="color: black;"> Danh mục chủ đề: </h2></div>
             <div style="display: flex;justify-content: space-around">
-                @Html.Action("ChuDePartial","ChuDe")
+                @Html.Action("ChuDePartial", "ChuDe")
             </div>
 
 
         </section>
 
-            @*Div nha xuat' ban *@
-            <section class="blank items">
-                <div style="display: flex; background: white;" >
-                    <div id="divLeft" style="width:25rem">
-                        <div class="item">
-                            <div class="item-info">
-                                
-                                @Html.Action("NhaXuatBanPartial","NhaXuatBan")
-                                
-                            </div>
-                            <img src="~/Images/tree-736885__480.jpg" style="height: 20rem;" />
+        @*Div nha xuat' ban *@
+        <section class="blank items">
+            <div style="display: flex; background: white;">
+                <div id="divLeft" style="width:25rem">
+                    <div class="item">
+                        <div class="item-info">
+                                @Html.Action("NhaXuatBanPartial", "NhaXuatBan")
                         </div>
-                    </div>
-                    <div id="divRight" style="display: flex; max-width: 67rem; padding-top:1rem;">
-                        @RenderSection("NoiDungBenPhai",false)
+                        <img src="~/Images/tree-736885__480.jpg" style="height: 16rem; margin-left: 6px;" />
                     </div>
                 </div>
-            </section>
+                <div id="divRight" style="display: flex; max-width: 67rem; padding-top: 1rem;">
+                    @RenderSection("NoiDungBenPhai", false)
+                </div>
+            </div>
+        </section>
 
-    <div>
-        <a href="#" class="button button-buy">WELCOME TO NGHIA~ & HUY WEBSITE</a>
-    </div>
+        <div>
+            <a href="#" class="button button-buy">WELCOME TO NGHIA~ & HUY WEBSITE</a>
+        </div>
 
 
-    @*Link scripts chay slide*@
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="./app.js"></script>
+        @*Link scripts chay slide*@
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script src="./app.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.fade').slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                speed: 500,
-                fade: true,
-                arrows: false,
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.fade').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    speed: 500,
+                    fade: true,
+                    arrows: false,
+                });
             });
-        });
-    </script>
+        </script>
     </div>
 </body>
 </html >

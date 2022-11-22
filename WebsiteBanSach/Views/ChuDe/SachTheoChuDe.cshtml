@@ -20,14 +20,13 @@
         <div id="ThongTin">
             @if (item.TenSach.Length < 30)
             {
-                <div id="TenSach" title="@item.TenSach">@item.TenSach.</div>
+                <a href="/Sach/XemChiTiet?MaSach=@item.MaSach" id="TenSach" title="@item.TenSach">@item.TenSach.</a>
             }
 
             else
             {
-                <div id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 30)...</div>
+                <a href="/Sach/XemChiTiet?MaSach=@item.MaSach" id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 30)...</a>
             }
-
         </div>
         <div id="DonGia">@item.GiaBan</div>
         @if (i % 3 == 0)

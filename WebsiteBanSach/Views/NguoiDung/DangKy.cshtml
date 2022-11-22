@@ -5,14 +5,14 @@
     Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
 }
 
-<div style="margin-left: 35rem">
+<div style="margin-left: ">
 
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <h4>KHACHHANG</h4>
+            <h4>Đăng kí</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
