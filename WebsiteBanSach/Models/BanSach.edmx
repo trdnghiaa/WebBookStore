@@ -46,6 +46,7 @@
           <Property Name="DienThoai" Type="varchar" MaxLength="50" />
           <Property Name="GioiTinh" Type="nvarchar" MaxLength="3" />
           <Property Name="NgaySinh" Type="datetime" />
+          <Property Name="role" Type="int" />
         </EntityType>
         <EntityType Name="NXB">
           <Key>
@@ -273,6 +274,7 @@
           <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
           <Property Name="NgaySinh" Type="DateTime" Precision="3" />
           <NavigationProperty Name="DONHANGs" Relationship="Self.FK_DONHANG_KHACHHANG" FromRole="KHACHHANG" ToRole="DONHANG" />
+          <Property Name="role" Type="Int32" />
         </EntityType>
         <EntityType Name="NXB">
           <Key>
@@ -496,6 +498,7 @@
           <EntitySetMapping Name="KHACHHANGs">
             <EntityTypeMapping TypeName="QLBANSACHModel.KHACHHANG">
               <MappingFragment StoreEntitySet="KHACHHANG">
+                <ScalarProperty Name="role" ColumnName="role" />
                 <ScalarProperty Name="MaKH" ColumnName="MaKH" />
                 <ScalarProperty Name="HoTen" ColumnName="HoTen" />
                 <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />

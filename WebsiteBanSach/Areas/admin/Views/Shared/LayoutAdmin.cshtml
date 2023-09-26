@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width" />
+
+    @* Chèn file css Javascript *@
+    <link href="~/Areas/Bootstrap_Metro_Dashboard-master/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Areas/Bootstrap_Metro_Dashboard-master/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/Areas/Bootstrap_Metro_Dashboard-master/css/style.css" rel="stylesheet" />
+    <link href="~/Areas/Bootstrap_Metro_Dashboard-master/css/style-responsive.css" rel="stylesheet" />
+
+    <link href="~/Content/fontawesome-free-6.2.0-web/css/all.css" rel="stylesheet" />
+
+
+
+</head>
+<body>
+    <!-- start: Header -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                
+                <a class="brand" href="~/admin/SACHes"><span>Books</span></a>
+
+                <!-- start: Header Menu -->
+                <div class="nav-no-collapse header-nav">
+                    <ul class="nav pull-right">
+                       
+                        <!-- start: User Dropdown -->
+                        <li class="dropdown">
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="halflings-icon white user"></i> Trần Đại Nghĩa
+                                
+                            </a>
+                            
+                        </li>
+                        <!-- end: User Dropdown -->
+                    </ul>
+                </div>
+                <!-- end: Header Menu -->
+
+            </div>
+        </div>
+    </div>
+    <!-- start: Header -->
+
+    <div class="container-fluid-full">
+        <div class="row-fluid">
+
+            <!-- start: Main Menu -->
+            <div id="sidebar-left" class="span2">
+                <div class="nav-collapse sidebar-nav">
+                    <ul class="nav nav-tabs nav-stacked main-menu">
+                        <li><a href="@Url.Action("Index","SACHes")"><i class="fa-solid fa-book"></i></i><span class="hidden-tablet"> Quản lý Sản Phẩm</span></a></li>
+                        <li><a href="@Url.Action("Index","KHACHHANGs")"><i class="icon-envelope"></i><span class="hidden-tablet"> Quản lý Khách Hàng</span></a></li>
+                        <li><a href="@Url.Action("Index","DONHANGs")"><i class="icon-tasks"></i><span class="hidden-tablet"> Quản lý Đơn Hàng</span></a></li>
+                        <li><a href="@Url.Action("Index","CHITIETDONHANGs")"><i class="icon-eye-open"></i><span class="hidden-tablet"> Chi tiết Đơn Hàng</span></a></li>
+                        <li><a href="@Url.Action("Index","TACGIAs")"><i class="icon-dashboard"></i><span class="hidden-tablet"> Quản lý Tác Giả</span></a></li>
+                        <li><a href="@Url.Action("Index","NXBs")"><i class="icon-edit"></i><span class="hidden-tablet"> Quản lý Nhà Xuất Bản</span></a></li>
+                        <li><a href="@Url.Action("Index","THAMGIAs")"><i class="icon-list-alt"></i><span class="hidden-tablet"> Quản lý Tham Gia</span></a></li>
+                        <li><a href="@Url.Action("Index","CHUDEs")"><i class="icon-font"></i><span class="hidden-tablet"> Quản lý Chủ Đề</span></a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <!-- end: Main Menu -->
+
+            <noscript>
+                <div class="alert alert-block span10">
+                    <h4 class="alert-heading">Warning!</h4>
+                    <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+                </div>
+            </noscript>
+         
+            @* START CONTENT *@
+            <div id="content" class="span10">
+                @RenderBody()
+            </div>
+            @* END CONTENT *@
+
+        </div><!--/#content.span10-->
+    </div><!--/fluid-row-->
+
+    
+
+    <div class="clearfix"></div>
+
+    <footer>
+
+        <p>
+            <span style="text-align:left;float:left">&copy; 2003 <a  alt="Bootstrap_Metro_Dashboard">Nghia~ and Huy</a></span>
+
+        </p>
+
+    </footer>
+
+    <!-- start: JavaScript-->
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery-1.9.1.min.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery-migrate-1.0.0.min.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery-ui-1.10.0.custom.min.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.ui.touch-punch.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/modernizr.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/bootstrap.min.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.cookie.js"></script>
+
+    <script src='~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/fullcalendar.min.js'></script>
+
+    <script src='~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.dataTables.min.js'></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/excanvas.js"></script>
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.flot.js"></script>
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.flot.pie.js"></script>
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.flot.stack.js"></script>
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.flot.resize.min.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.chosen.min.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.uniform.min.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.cleditor.min.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.noty.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.elfinder.min.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.raty.min.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.iphone.toggle.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.uploadify-3.1.min.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.gritter.min.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.imagesloaded.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.masonry.min.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.knob.modified.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/jquery.sparkline.min.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/counter.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/retina.js"></script>
+
+    <script src="~/Areas/admin/Views/homeAdmin/Bootstrap_Metro_Dashboard-master/js/custom.js"></script>
+    <!-- end: JavaScript-->
+
+</body>
+</html>
+

@@ -1,0 +1,101 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<WebsiteBanSach.Models.SACH>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Admin</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên Sách
+        </th>
+        <th>
+            Giá Bán
+        </th>
+        <th>
+            Mô Tả
+        </th>
+        <th>
+            Ảnh Bìa
+        </th>
+        <th>
+            Ngày Cập Nhật
+        </th>
+        <th>
+            Số Lượng Tồn
+        </th>
+        <th>
+            Mới
+        </th>
+        <th>
+            Chủ Đề
+        </th>
+        <th>
+            Tên NXB
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaBan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                <img src="@Url.Content("~/ImagesSP/" + item.AnhBia)" width="5000px" style="height:180px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayCapNhat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuongTon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Moi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CHUDE.TenChuDe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NXB.TenNXB)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaSach }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaSach }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaSach })
+            </td>
+        </tr>
+    }
+
+</table>
+@* TẠO LINK LIÊN KẾT CÁC TRANG *@
+<div class="PhanTrang">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    <div class="pagination ">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+</div>
+<style>
+    div.pagination {
+        margin: -5px 0;
+        padding-left: 1rem;
+    }
+    div.PhanTrang {
+        text-align: center;
+    }
+</style>

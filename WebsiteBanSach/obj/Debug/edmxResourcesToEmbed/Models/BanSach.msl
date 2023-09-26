@@ -34,6 +34,7 @@
     <EntitySetMapping Name="KHACHHANGs">
       <EntityTypeMapping TypeName="QLBANSACHModel.KHACHHANG">
         <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="role" ColumnName="role" />
           <ScalarProperty Name="MaKH" ColumnName="MaKH" />
           <ScalarProperty Name="HoTen" ColumnName="HoTen" />
           <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />

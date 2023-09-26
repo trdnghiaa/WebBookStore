@@ -1,0 +1,49 @@
+﻿@model WebsiteBanSach.Models.THAMGIA
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>THAMGIA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VaiTro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VaiTro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SACH.TenSach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SACH.TenSach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TACGIA.TenTacGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TACGIA.TenTacGia)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -891,7 +891,7 @@ section.flatby {
 /* line 1079, ../sass/screen.scss */
 .flash {
     position: relative;
-    padding: 1em;
+    padding: 25px;
     /*  border-radius: 4px; */
     color: #fff;
     background: #303030;

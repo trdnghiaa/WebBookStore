@@ -1,53 +1,58 @@
-﻿@using WebsiteBanSach.Models;
+﻿
+@using WebsiteBanSach.Models;
 @model List<GioHang>
 @{
     ViewBag.Title = "SuaGioHang";
     Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
 }
-
-<h2>Sửa giỏ hàng</h2>
-<table style="width: 100%;">
-    <tr>
-        <td>Mã sách</td>
-
-        <td>Tên sách</td>
-
-        <td>Ảnh bìa</td>
-
-        <td>Đơn giá</td>
-
-        <td>Số lượng</td>
-
-        <td>Thành tiền</td>
-
-    </tr>
-
-
-    @foreach (var item in Model)
-    {
+<div class="SuaGioHangCss">
+    <h2 style="margin-left: 26rem; padding-bottom: 2rem; font-size: 2.25rem; line-height: 1.2; font-weight: 600;">Sửa giỏ hàng</h2>
+    <table style="width: 100%;">
         <tr>
-            <td>@item.iMaSach</td>
+            <td>Mã sách</td>
 
-            <td>@item.sTenSach</td>
+            <td>Tên sách</td>
 
-            <td><img src="@Url.Content("~/ImagesSP/" + item.sAnhBia)" width="50" height="50" /></td>
+            <td>Ảnh bìa</td>
 
-            <td>@string.Format("{0:0,0}", item.dDonGia) VNĐ</td>
+            <td>Đơn giá</td>
 
-            @* CHỈNH SỬA GIỎ HÀNG GỌI VỀ ACTION CAPNHATGIOHANG *@
-            @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @iMaSP = item.iMaSach }))
-            {
-                <td>@Html.TextBox("txtSoLuong", @item.iSoLuong) </td>
-                <td>@string.Format("{0:0,0}", item.ThanhTien) VNĐ</td>
-                <td>
-                    <input type="submit" value="Cập nhật" />
-                    <br />
-                    @* XÓA GIỎ HÀNG GỌI VỀ ACTION XÓA GIỎ HÀNG *@
-                    @Html.ActionLink("Xóa", "XoaGioHang", new { @iMaSP = item.iMaSach })
-                </td>
-            }
+            <td>Số lượng</td>
+
+            <td>Thành tiền</td>
 
         </tr>
-    }
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.iMaSach</td>
 
+                <td>@item.sTenSach</td>
+
+                <td><img src="@Url.Content("~/ImagesSP/" + item.sAnhBia)" width="50" height="50" /></td>
+
+                <td>@string.Format("{0:0,0}", item.dDonGia) VNĐ</td>
+
+                @* CHỈNH SỬA GIỎ HÀNG GỌI VỀ ACTION CAPNHATGIOHANG *@
+                @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @iMaSP = item.iMaSach }))
+                {
+                    <td>@Html.TextBox("txtSoLuong", @item.iSoLuong) </td>
+                    <td>@string.Format("{0:0,0}", item.ThanhTien) VNĐ</td>
+                    <td>
+                        <input type="submit" value="Cập nhật" />
+                        <br />
+                        @* XÓA GIỎ HÀNG GỌI VỀ ACTION XÓA GIỎ HÀNG *@
+                        @Html.ActionLink("Xóa", "XoaGioHang", new { @iMaSP = item.iMaSach })
+                    </td>
+                }
+
+            </tr>
+        }
+    </table>
+</div>
+
+<style>
+    div.SuaGioHangCss {
+        padding: 3rem 5rem 3rem 7rem;
+    }
+</style>

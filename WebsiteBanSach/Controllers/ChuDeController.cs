@@ -13,7 +13,6 @@ namespace WebsiteBanSach.Controllers
         // GET: ChuDe
         public ActionResult ChuDePartial()
         {
-
             return PartialView(db.CHUDEs.Take(5).ToList());
         }
         //Sách theo chủ đề

@@ -44,15 +44,23 @@ namespace WebsiteBanSach.Controllers
         {
             string sTaiKhoan = f["txtTaiKhoan"].ToString();
             string sMatKhau = f.Get("txtMatKhau").ToString();
-            KHACHHANG kh = db.KHACHHANGs.SingleOrDefault(n => n.TaiKhoan == sTaiKhoan && n.MatKhau == sMatKhau);
-            if(kh!=null)
+            KHACHHANG admin = db.KHACHHANGs.FirstOrDefault(n => n.TaiKhoan == sTaiKhoan && n.MatKhau == sMatKhau && n.role == 1);
+            KHACHHANG kh = db.KHACHHANGs.FirstOrDefault(n => n.TaiKhoan == sTaiKhoan && n.MatKhau == sMatKhau);
+            if (admin != null)
+            {
+                return RedirectToAction("Index","homeAdmin", new { area = "admin" });
+            }
+            else if (kh != null)
             {
                 ViewBag.ThongBao = "Chúc mừng bạn đăng nhập thành công !";
                 Session["TaiKhoan"] = kh;
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.ThongBao = "Tài khoản hoặc khẩu không đúng !";
                 return View();
             }
-            ViewBag.ThongBao = "Tài khoản hoặc khẩu không đúng !";
-            return View();
         }
     }
 }

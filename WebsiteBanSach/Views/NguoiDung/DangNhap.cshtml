@@ -5,25 +5,87 @@
 }
 
 <div id="divDangnhap">
-    <h2> Đăng nhập </h2>
+    <div id="signin">
+        <h2> Đăng nhập tài khoản </h2>
+    </div>
 
-        @using (@Html.BeginForm())
-        {
-            <h1>@ViewBag.ThongBao</h1>
-            <span>Tài khoản: </span>
-            @Html.TextBox("txtTaiKhoan");
-            <br />
-            <span>Mật khẩu: </span><br />
-            <input name="txtMatKhau" type="text" />
-            <br />
-            <input type="submit" id="btnSubmit" name="btnSubmit" />
-        }
+    @using (@Html.BeginForm("DangNhap","NguoiDung"))
+    {
+        <div id="titleDangnhap">
+            <span> Tên đăng nhập </span>
+        </div>
+        <div id="tkhoan">
+            @Html.TextBox("txtTaiKhoan")
+        </div>
+        <div id="titleMatkhau">
+            <span> Mật khẩu </span>
+        </div>
+        <div id="mkhau">
+            <input id="txtMatKhau" name="txtMatKhau" type="password" />
+        </div>
+
+        <div>
+            <input type="submit" id="btnSubmit" name="btnSubmit" value="Đăng nhập" />
+        </div>
+    }
+</div>
+<div id="successDangnhap">
+    <h1>@ViewBag.ThongBao</h1>
 </div>
 
-    @*<style>
-        div#divDangnhap {
-            display: grid;
-            MARGIN-RIGHT: 50REM;
-            MARGIN-LEFT: 27REM;
-        }
-    </style>*@
+
+<style>
+    div#divDangnhap {
+        display: block;
+        padding: 4rem 22rem 1rem 29rem;
+    }
+
+    input#txtTaiKhoan {
+        margin-top: 2rem;
+        margin-left: -7rem;
+        border-radius: 10px;
+        border: 1px solid black;
+        width: 25rem;
+        max-height: 0rem;
+        background-color: #fff;
+    }
+
+    div#titleMatkhau {
+        margin-top: 6rem;
+        margin-left: -27rem;
+    }
+
+    input#txtMatKhau {
+        border-radius: 10px;
+        border: 1px solid black;
+        width: 25rem;
+        max-height: 0rem;
+        margin-top: 8rem;
+        margin-left: -5rem;
+        background-color: #fff;
+    }
+
+    div#signin {
+        margin-left: 3rem;
+        padding-bottom: 1rem;
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+
+    input#btnSubmit {
+        margin-top: 12rem;
+        margin-left: -290px;
+        color: #fff;
+        background-color: #0d6efd;
+        border-color: #6ca8ff;
+        width: 9rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+
+    div#successDangnhap {
+        display: inline-flex;
+        padding-left: 24rem;
+    }
+</style>
+

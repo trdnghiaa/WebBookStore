@@ -4,57 +4,58 @@
     ViewBag.Title = "GioHang";
     Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
 }
+<div class="DatHangCss">
+    <h2 style="margin-left: 26rem; padding-bottom: 2rem; font-size: 2.25rem; line-height: 1.2; font-weight: 600;"> Giỏ hàng của bạn </h2>
+    <table style="width: 100%;">
 
-<h2> Giỏ hàng của bạn </h2>
-<table style="width: 100%;">
-
-    <tr>
-        <td>Mã sách</td>
-
-        <td>Tên sách</td>
-
-        <td>Ảnh bìa</td>
-
-        <td>Đơn giá</td>
-
-        <td>Số lượng</td>
-
-        <td>Thành tiền</td>
-
-    </tr>
-
-
-    @foreach (var item in Model)
-    {
         <tr>
-            <td>@item.iMaSach</td>
+            <td>Mã sách</td>
 
-            <td>@item.sTenSach</td>
+            <td>Tên sách</td>
 
-            <td><a href="@Url.Action("XemChiTiet","Sach",new { @MaSach=item.iMaSach})"><img src="@Url.Content("~/ImagesSP/" + item.sAnhBia)" width="50" height="50" /></a></td>
+            <td>Ảnh bìa</td>
 
-            <td>@string.Format("{0:0,0}", item.dDonGia) VNĐ</td>
+            <td>Đơn giá</td>
 
-            <td>@item.iSoLuong</td>
+            <td>Số lượng</td>
 
-            <td>@string.Format("{0:0,0}", item.ThanhTien) VNĐ</td>
+            <td>Thành tiền</td>
         </tr>
-    }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.iMaSach</td>
 
-    <tr>
-        <td colspan="6" style="text-align:right">
-            @Html.ActionLink("Chỉnh sửa giỏ hàng", "SuaGioHang")
-        </td>
-    </tr>
+                <td style="width: 26rem;">@item.sTenSach</td>
 
-    <tr>
-        <td colspan="6" style="text-align:right">
-            @using (Html.BeginForm("DatHang", "GioHang"))
-            {
-            <input type="submit" value="Đặt hàng" />
-            }    
+                <td><a href="@Url.Action("XemChiTiet","Sach",new { @MaSach=item.iMaSach})"><img src="@Url.Content("~/ImagesSP/" + item.sAnhBia)" width="50" height="50" /></a></td>
 
-        </td>
-    </tr>
+                <td>@string.Format("{0:0,0}", item.dDonGia) đ</td>
 
+                <td>@item.iSoLuong</td>
+
+                <td>@string.Format("{0:0,0}", item.ThanhTien) đ</td>
+            </tr>
+        }
+
+        <tr>
+            <td colspan="6" style="text-align:right">
+                @Html.ActionLink("Chỉnh sửa giỏ hàng", "SuaGioHang")
+            </td>
+        </tr
+        <tr>
+            <td colspan="6" style="text-align:right">
+                @using (Html.BeginForm("DatHang", "GioHang"))
+                {
+                    <input type="submit" value="Hoàn tất đặt hàng" />
+                }
+
+            </td>
+        </tr>
+</div>
 </table>
+<style>
+    div.DatHangCss {
+        padding: 3rem 5rem 3rem 7rem;
+    }
+</style>

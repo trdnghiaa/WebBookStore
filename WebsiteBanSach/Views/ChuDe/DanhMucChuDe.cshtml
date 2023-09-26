@@ -6,13 +6,16 @@
 }
 
 @* Hiển thị danh mục chủ đề *@
-@foreach (var item in Model)
-{
-    <a href="@Url.Action("SachTheoChuDe",new {@MaChuDe=item.MaChuDe})" class="button button-submit" style="
-    display: flex; 
+
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("SachTheoChuDe",new {@MaChuDe=item.MaChuDe})" class="button button-submit" style="
+    display: flex;
     justify-content: space-around;
-    margin: 0rem 34rem; 
+    margin: 0rem 34rem;
 "> @item.TenChuDe </a>
-    <br />
+<br />
 }
+
+
 

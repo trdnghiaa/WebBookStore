@@ -1,0 +1,43 @@
+﻿@model WebsiteBanSach.Models.THAMGIA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>THAMGIA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VaiTro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VaiTro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SACH.TenSach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SACH.TenSach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TACGIA.TenTacGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TACGIA.TenTacGia)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

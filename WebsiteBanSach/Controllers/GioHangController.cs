@@ -18,7 +18,7 @@ namespace WebsiteBanSach.Controllers
             List<GioHang> lstGioHang = Session["GioHang"] as List<GioHang>;
             if (lstGioHang == null)
             {
-                //Nếu giỏ hàng chưa tồn tại thì tiến hành khởi tạo list giỏ hafg (session gio hang)
+                //Nếu giỏ hàng chưa tồn tại thì tiến hành khởi tạo list giỏ hàng (session gio hang)
                 lstGioHang = new List<GioHang>();
                 Session["GioHang"] = lstGioHang;
             }
@@ -36,7 +36,6 @@ namespace WebsiteBanSach.Controllers
             }
             //Lấy ra session giỏ hàng
             List<GioHang> lstGioHang = LayGioHang();
-
             //Kiểm tra sách này đã tồn tại trong session["giohang"] chưa
             GioHang sanpham = lstGioHang.Find(n => n.iMaSach == iMaSach);
 
@@ -97,7 +96,7 @@ namespace WebsiteBanSach.Controllers
             //lấy giỏ hàng từ session
             List<GioHang> lstGioHang = LayGioHang();
 
-            //kiểm tra sp có tồn tịa trong session["giohang"]
+            //kiểm tra sp có tồn tại trong session["giohang"]
             GioHang sanpham = lstGioHang.SingleOrDefault(n => n.iMaSach == iMaSP);
 
             //NẾU TỒN TỊA THÌ CHO SỬA SỐ LƯỢNG
@@ -184,7 +183,7 @@ namespace WebsiteBanSach.Controllers
             // Kiểm tra giỏ hàng
             if (Session["GioHang"] == null)
             {
-                RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
             }
 
             // Thêm đơn hàng
@@ -207,7 +206,7 @@ namespace WebsiteBanSach.Controllers
                 db.CHITIETDONHANGs.Add(ctDH);
             }
             db.SaveChanges();
-
+            Session["GioHang"] = null;
             return RedirectToAction("Index","Home");
         }
         #endregion

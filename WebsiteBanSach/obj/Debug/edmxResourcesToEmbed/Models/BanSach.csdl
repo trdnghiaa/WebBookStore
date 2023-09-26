@@ -47,6 +47,7 @@
     <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
     <Property Name="NgaySinh" Type="DateTime" Precision="3" />
     <NavigationProperty Name="DONHANGs" Relationship="Self.FK_DONHANG_KHACHHANG" FromRole="KHACHHANG" ToRole="DONHANG" />
+    <Property Name="role" Type="Int32" />
   </EntityType>
   <EntityType Name="NXB">
     <Key>

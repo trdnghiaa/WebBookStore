@@ -30,11 +30,12 @@
                 </div>
                 @*Tạo div đăng ký đăng nhập*@
             <div class="DangKyDangNhap">
-                @Html.Action("GioHangPartial", "GioHang")
-                <i class="fa-solid fa-right-to-bracket"></i>
+
                 @Html.ActionLink("Đăng ký", "DangKy", "NguoiDung", null, htmlAttributes: new { @class = "DangKy" })
-                <i class="fa-sharp fa-solid fa-lock-open"></i>
+                <span id="gachChia"> / </span>
                 @Html.ActionLink("Đăng nhập", "DangNhap", "NguoiDung", null, htmlAttributes: new { @class = "DangNhap" })
+                <span> </span>
+                @Html.Action("GioHangPartial", "GioHang")
             </div>
             </div>
 
@@ -60,7 +61,7 @@
                         <a href="/Home/Index">Trang chủ</a>
                     </li>
                     <li>
-                        <a href="/sach">Giới thiệu</a>
+                        <a href="#">Giới thiệu</a>
                     </li>
                     <li>
                         <a href="#">Liên hệ</a>
@@ -69,7 +70,7 @@
                         <a href="#">Hướng dẫn</a>
                     </li>
                     <li>
-                        <a href="#">Sách</a>
+                        <a href="/ChuDe/DanhMucChuDe">Sách</a>
                     </li>
                 </ul>
             </div>
@@ -105,7 +106,7 @@
 
         @* Phần chủ đề *@
         <section>
-            <div><h2 style="color: black;"> Danh mục chủ đề: </h2></div>
+            <div><h2 style="color: black;text-align: -webkit-center; font-size: 2rem; padding-bottom: 1rem;"> Danh mục chủ đề </h2></div>
             <div style="display: flex;justify-content: space-around">
                 @Html.Action("ChuDePartial", "ChuDe")
             </div>

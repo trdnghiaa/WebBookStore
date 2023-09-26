@@ -15,16 +15,16 @@
         <div id="ThongTin">
             @if (item.TenSach.Length < 30)
             {
-                <div id="TenSach" title="@item.TenSach">@item.TenSach.</div>
+                <a href="/Sach/XemChiTiet?MaSach=@item.MaSach" id="TenSach" title="@item.TenSach">@item.TenSach.</a>
             }
 
             else
             {
-                <div id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 30)...</div>
+                <a href="/Sach/XemChiTiet?MaSach=@item.MaSach" id="TenSach" title="@item.TenSach">@item.TenSach.</a>
             }
 
         </div>
-        <div id="DonGia">@item.GiaBan</div>
+        <div id="DonGia">@item.GiaBan đ</div>
         @if (i % 3 == 0)
         {
             <div style="clear:both"></div>
@@ -35,6 +35,7 @@
     div#NoiDung {
         display: grid;
         grid-template-columns: auto auto auto;
-        padding: 0rem 11rem;
+        padding-left: 14rem;
+        padding-top: 2rem;
     }
 </style>

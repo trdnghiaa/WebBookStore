@@ -1,3 +1,16 @@
 ﻿
+
+@using WebsiteBanSach.Models;
+@{ 
+    KHACHHANG kh = (KHACHHANG)Session["TaiKhoan"];
+}
+@if (kh != null) {
+    <span style="color:white">@kh.HoTen</span>
+    <style>
+        .DangKy,.DangNhap,#gachChia {
+            display:none;
+        }
+    </style>
+}
 <a href="@Url.Action("GioHang","GioHang")"><i class="fa-solid fa-cart-shopping"></i> (@ViewBag.TongSoLuong)</a>
 

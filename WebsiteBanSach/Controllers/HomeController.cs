@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebsiteBanSach.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace WebsiteBanSach.Controllers
 {
@@ -11,9 +13,13 @@ namespace WebsiteBanSach.Controllers
     {
         // GET: Home
         QLBANSACHEntities db = new QLBANSACHEntities();
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View(db.SACHes.Where(n=>n.Moi==1).ToList());
+            // Tạo số sản phẩm trên trang
+            int pageSize = 9;
+            //Tạo số trang
+            int pageNumber = (page ?? 1);
+            return View(db.SACHes.ToList().OrderBy(n=>n.GiaBan).ToPagedList(pageNumber, pageSize ));
         }
 
     }

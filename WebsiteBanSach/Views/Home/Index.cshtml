@@ -1,5 +1,7 @@
-﻿@using WebsiteBanSach.Models;
-@model List<SACH>
+﻿
+@using WebsiteBanSach.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<SACH>
 @{
     Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
     ViewBag.Title = "Index";
@@ -13,35 +15,38 @@
     Ngày thành lập: 17 tháng 6 năm 1957
     Cơ quan chủ quản: Trung ương Đoàn TNCS Hồ Chí Minh
 }
-<div id="titlebody" style="height: 4rem; text-align: -webkit-center; font-size: 3rem; padding: 2rem; font-weight: 500;">Sách mới xuất bản</div>
+<div id="titlebody" style="height: 4rem; text-align: -webkit-center; font-size: 3rem; padding: 2rem; font-weight: 500;">~ Sách mới xuất bản ~</div>
 
 @* div Body trang index *@
-<div id="divBody" style="display: grid; grid-template-columns: auto auto auto; padding: 0rem 11rem;" >
+<div id="divBody">
     @{ int i = 0;}
     @foreach (var item in Model)
      {
         <div id="SanPham">
-                @*i++;*@
-                <div id="AnhBia" style="padding-left: 3rem;"><img src="@Url.Content("~/ImagesSP/" + item.AnhBia)" width="100" height="150" /></div>
-                <div id="ThongTin">
+                
+                <div id="AnhBia"><img src="@Url.Content("~/ImagesSP/" + item.AnhBia)" width="150" height="200" /></div>
+                <div id="Profile">
+                    <div id="ThongTin">
                         @if (item.TenSach.Length < 30)
-                    {
-                        <a href="/Sach/XemChiTiet?MaSach=@item.MaSach" id="TenSach" title="@item.TenSach" >@item.TenSach.</a>
-                    }
+                        {
+                            <a href="/Sach/XemChiTiet?MaSach=@item.MaSach" id="TenSach" title="@item.TenSach">@item.TenSach.</a>
+                        }
 
                         else
-                    {
-                        <a href="/Sach/XemChiTiet?MaSach=@item.MaSach" id="TenSach" title="@item.TenSach" >@item.TenSach.Substring(0,30)...</a>
-                    }
+                        {
+                            <a href="/Sach/XemChiTiet?MaSach=@item.MaSach" id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 30)...</a>
+                        }
 
-                </div>               
-                <div id="DonGia"><span style="color: green; font-weight: normal;"> Đơn giá: </span><br /><span id="DonGia"> @string.Format("{0:0,0}", item.GiaBan) VNĐ</span> </div>
-                <div id="GioHang">
-                    @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = item.MaSach, @strURL = Request.Url.ToString() }))
-                    {
-                        <input type="submit" style="cursor: pointer; text-transform: uppercase; background-color: #000; margin-left: 14PX; color: #fff;" value="Buy" id="btnGioHang" class="btn btn-primary" />
-                    }
+                    </div>
+                    <div id="DonGia"><span style="color: green; font-weight: normal;"> Đơn giá: </span><br /><span id="DonGia"> @string.Format("{0:0,0}", item.GiaBan) đ</span> </div>
+                    <div id="GioHang">
+                        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = item.MaSach, @strURL = Request.Url.ToString() }))
+                        {
+                            <input type="submit" value="Đặt ngay" id="btnGioHang" class="btn btn-primary" />
+                        }
+                    </div>
                 </div>
+                
             @if(i % 3 == 0)
                 {
                 <div style="clear: both; margin-bottom: 2rem;"></div>
@@ -50,3 +55,46 @@
      }
 </div>
 <div style="clear:both"></div>
+
+@* TẠO LINK LIÊN KẾT CÁC TRANG *@
+<div class="PhanTrang">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    <div class="menutrang">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+</div>
+
+<style>
+    .menutrang li{
+        display:inline;
+    }
+    div.PhanTrang {
+        padding-left: 4rem;
+    }
+    input#btnGioHang.btn.btn-primary {
+        cursor: pointer;
+        border-color: #0d6efd;
+        border-radius: 10px;
+        background-color:white;
+        margin-left: 22PX;
+        color: #0d6efd;
+    }
+    div#Profile {
+        text-align: -webkit-center;
+        width: 18rem;
+    }
+    div#GioHang {
+        padding-left: 5.5rem;
+    }
+    div#AnhBia {
+        padding-left: 4.5rem;
+    }
+    div#divBody {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        padding: 1rem 2rem 1rem 7rem;
+    }
+    div#GioHang {
+        padding-bottom: 8px;
+    }
+</style>

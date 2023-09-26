@@ -21,8 +21,8 @@ namespace WebsiteBanSach
             );
             routes.MapRoute(
                 name: "Admin",
-                url: "Admin/SACHes/{action}/{id}",
-                defaults: new { controller = "SACHes", action = "Index", id = UrlParameter.Optional }
+                url: "admin/homeAdmin/{action}/{id}",
+                defaults: new { controller = "homeAdmin", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

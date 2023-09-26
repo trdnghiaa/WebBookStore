@@ -1,0 +1,25 @@
+﻿
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<WebsiteBanSach.Models.SACH>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>ADMIN</h2>
+
+
+@* TẠO LINK LIÊN KẾT CÁC TRANG *@
+<div class="PhanTrang">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    <div class="menutrang">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+</div>
+<style>
+    div.PhanTrang {
+        padding-left: 4rem;
+    }
+</style>
